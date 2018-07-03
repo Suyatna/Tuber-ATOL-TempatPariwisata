@@ -21,7 +21,9 @@
         }
 
         public function index_admin_dashboard(){
-            $this->load->view('admin_dashboard');
+            $this->load->view('admin/header');
+            $this->load->view('admin/home');
+            $this->load->view('admin/footer');
         }
 
         public function adminAction(){
