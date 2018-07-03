@@ -2,8 +2,7 @@
     // define('BASEPATH') OR exit('No direct script access allowed');
 
     class admin_login extends CI_Controller
-    {
-        // private $session;
+    {        
         public function __construct()
         {
             parent::__construct();
@@ -22,7 +21,7 @@
 
         public function index_admin_dashboard(){
             $this->load->view('admin/header');
-            $this->load->view('admin/home');
+            $this->load->view('admin/dashboard');
             $this->load->view('admin/footer');
         }
 

@@ -11,6 +11,13 @@
             $query = $this->db->get_where('tb_admin', ['username' => $username]);
             return $query;
         }
+
+        // Calling table tb_wisata
+        function getDataWisata()
+        {
+            $query = $this->db->query("SELECT * FROM tb_wisata");            
+            return $query;
+        }
     }
     
 ?>
