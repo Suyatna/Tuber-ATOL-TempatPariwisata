@@ -14,12 +14,10 @@
 
         public function index()
         {
-            $query['hasil'] = $this->admin_model->getDataWisata();          
-            
-            // $colors['warna'] = array("red", "green", "blue", "yellow");
+            $query['hasil'] = $this->admin_model->getDataWisata();                              
 
             $this->load->view('admin/header');
-            $this->load->view('admin/wisata', $query);
+            $this->load->view('admin/wisata_admin', $query);
             $this->load->view('admin/footer');
         }        
     }

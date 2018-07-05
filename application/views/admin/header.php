@@ -70,13 +70,13 @@
                         </div>
                     </li>
                     <li class="bold">
-                        <a href="#" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                        <a href="<?php echo base_url().'dashboard'; ?>" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
                     </li>
                     
                     <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KOTA / KABUPATEN</a>
                     <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KECAMATAN</a>
                     <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KELURAHAN</a>
-                    <li class="bold"><a href="<?php echo base_url().'admin_wisata' ?>"" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> WISATA</a>
+                    <li class="bold"><a href="<?php echo base_url().'wisata_admin' ?>" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> WISATA</a>
                     
                 </ul>
                 <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>

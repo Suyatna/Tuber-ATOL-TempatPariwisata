@@ -55,7 +55,12 @@ $route['login']['POST'] = 'admin_login/adminAction';
 $route['dashboard'] = 'admin_login/index_admin_dashboard';
 
 // Wisata
-$route['admin_wisata'] = 'wisata_admin';
+$route['wisata_admin'] = 'admin/wisata_admin';
+$route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
+
+// API WISATA
+$route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';
+$route['api/kelurahan/(:any)'] = 'admin/tambah_wisata_admin/getKelurahan/$1';
 
 // default
 $route['404_override'] = '';

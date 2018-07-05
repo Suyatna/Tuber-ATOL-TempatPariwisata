@@ -3,8 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Data Wisata</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS--> 
+    <link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     
 </head>
 <body>
@@ -19,7 +23,7 @@
                                 <hr>
                                 <div class="row">            
                                     <div class="col s12 m8 19">
-                                        <a href="#" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
+                                        <a href="<?php echo base_url().'tambah_wisata_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
                                         <table id="data-table-simple" class="responsive-table display" cellspacing="0">
