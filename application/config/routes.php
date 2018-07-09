@@ -59,6 +59,15 @@ $route['wisata_admin'] = 'admin/wisata_admin';
 $route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
 $route['pos_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
 
+// Kota / Kabupaten
+$route['kabupaten_admin'] = 'admin/kabupaten_admin';
+
+// Kecamatan
+$route['kecamatan_admin'] = 'admin/kecamatan_admin';
+
+// Kelurahan
+$route['kelurahan_admin'] = 'admin/kelurahan_admin';
+
 // API WISATA
 $route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';
 $route['api/kelurahan/(:any)'] = 'admin/tambah_wisata_admin/getKelurahan/$1';

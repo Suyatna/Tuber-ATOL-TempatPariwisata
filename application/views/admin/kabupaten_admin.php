@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Data Wisata</title>
+    <title>Data Kabupaten</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS--> 
     <link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
@@ -19,30 +19,20 @@
                     <div class="section">
                         <div class="divider"></div>            
                             <div id="table-datatables">
-                                <h4 class="header">Data Wisata</h4>
+                                <h4 class="header">Data Kabupaten</h4>
                                 <hr>
                                 <div class="row">            
                                     <div class="col s12 m8 19">
-                                        <a href="<?php echo base_url().'tambah_wisata_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
+                                        <a href="#" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
                                         <table id="data-table-simple" class="responsive-table display" cellspacing="0">
 
                                             <thead>                  
-                                                <tr>
-                                                    <th>Id Wisata</th>
+                                                <tr>                                                    
                                                     <th>Id Kota / Kabupaten</th>
-                                                    <th>Id Kecamatan</th>
-                                                    <th>Id Kelurahan</th>
-                                                    <th>Nama Wisata</th>
-                                                    <th> Latitude </th>
-                                                    <th> Langitude </th>
-                                                    <th> Alamat </th>
-                                                    <th>Nomor Telepon</th>
-                                                    <th>Tiket Dewasa</th>
-                                                    <th>Tiket Anak</th>
-                                                    <th> Deskripsi </th>
-                                                    <th> Aksi </th>
+                                                    <th>Nama Kabupaten</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             
@@ -51,18 +41,8 @@
                                                     foreach ($hasil->result_array() as $value) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $value['id_wisata']; ?></td>
                                                         <td><?php echo $value['id_kabupaten']; ?></td>
-                                                        <td><?php echo $value['id_kecamatan']; ?></td>
-                                                        <td><?php echo $value['id_kelurahan']; ?></td>
-                                                        <td><?php echo $value['nama_wisata']; ?></td>
-                                                        <td><?php echo $value['latitude']; ?></td>
-                                                        <td><?php echo $value['langitude']; ?></td>
-                                                        <td><?php echo $value['alamat']; ?></td>
-                                                        <td><?php echo $value['no_telp']; ?></td>
-                                                        <td><?php echo $value['tiket_dewasa']; ?></td>
-                                                        <td><?php echo $value['tiket_anak']; ?></td>
-                                                        <td><?php echo $value['deskripsi']; ?></td>
+                                                        <td><?php echo $value['nama_kabupaten']; ?></td>
                                                         <td>
                                                             <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
                                                         </td>

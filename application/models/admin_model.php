@@ -28,7 +28,29 @@
         */
 
         /*        
-        * #region Tambah Data Wisata
+        * #region Data Kecamatan dan Data Kelurahan
+        */        
+
+        function getDataKecamatan()
+        {
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_kecamatan");            
+            return $query;
+        }
+
+        function getDataKelurahan()
+        {
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_kelurahan");            
+            return $query;
+        }
+
+        /*        
+        * #endregion Data Kecamatan dan Data Kelurahan
+        */
+
+        /*        
+        * #region Data Wisata
         */
 
         // Looking for last id_wisata (FK)
@@ -69,7 +91,7 @@
         }
 
         /*        
-        * #endregion Tambah Data Wisata
+        * #endregion Data Wisata
         */
     }    
 ?>
