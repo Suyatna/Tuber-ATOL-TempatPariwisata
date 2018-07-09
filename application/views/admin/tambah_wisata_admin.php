@@ -29,19 +29,19 @@
                                         <div class="card-panel">
                                             <div class="row">
 
-                                                <form class="col s12" action="" method="POST">
+                                                <form class="col s12" action="<?php echo base_url() .'pos_wisata_admin'; ?>" method="POST">
 
                                                     <div class="row">
                                                         <div class="input-field col s1">
-                                                            <input id="" name="" type="text" value="<?php echo $id_wisata; ?>" required readonly>
-                                                            <label for="" class="active">ID Wisata</label>
+                                                            <input id="" name="id_wisata" type="text" value="<?php echo $id_wisata; ?>" required readonly>
+                                                            <label for="id_wisata" class="active">ID Wisata</label>
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select id="data-kabupaten">
-                                                                <option value="" disabled selected>Pilih</option>
+                                                            <select id="data-kabupaten" name="id_kabupaten">
+                                                                <option name="id_kabupaten" value="" disabled selected>Pilih</option>
                                                                 <?php
                                                                     foreach ($data_kabupaten->result_array() as $row) {
                                                                         // isi perulangan                                                                    
@@ -59,7 +59,7 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select id="data-kecamatan" class="materialSelect">
+                                                            <select id="data-kecamatan" name="id_kecamatan" class="materialSelect">
                                                                 <option value="" disabled selected>Pilih Kabupaten Terlebih Dahulu</option>
                                                             
                                                             </select>
@@ -69,8 +69,8 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select id="data-kelurahan" class="materialSelect">
-                                                                <option value="" disabled selected>Pilih Kecamatan Terlebih Dahulu</option>
+                                                            <select id="data-kelurahan" name="id_kelurahan" class="materialSelect">
+                                                                <option  value="" disabled selected>Pilih Kecamatan Terlebih Dahulu</option>
                                                                 
                                                             </select>
                                                             <label>ID Kelurahann</label>
@@ -79,58 +79,58 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="text" required>
-                                                            <label for="">Nama Wisata</label>
+                                                            <input id="" name="nama_wisata" type="text" required>
+                                                            <label for="nama_wisata">Nama Wisata</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="text" required>
-                                                            <label for="">Latitude</label>
+                                                            <input id="" name="latitude" type="text" required>
+                                                            <label for="latitude">Latitude</label>
                                                         </div>
 
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="text" required>
-                                                            <label for="">Langitude</label>
+                                                            <input id="" name="langitude" type="text" required>
+                                                            <label for="langitude">Langitude</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                                            <label for="textarea1">Alamat</label>
+                                                            <textarea name="alamat" id="textarea1" class="materialize-textarea"></textarea>
+                                                            <label for="alamat">Alamat</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="number" required>
-                                                            <label for="">Nomor Telp</label>
+                                                            <input id="" name="no_telp" type="number" required>
+                                                            <label for="no_telp">Nomor Telp</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="number" required>
-                                                            <label for="">Harga Tiket Dewasa</label>
+                                                            <input id="" name="tiket_dewasa" type="number" required>
+                                                            <label for="tiket_dewasa">Harga Tiket Dewasa</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="" type="number" required>
-                                                            <label for="">Harga Tiket Anak-anak</label>
+                                                            <input id="" name="tiket_anak" type="number" required>
+                                                            <label for="tiket_anak">Harga Tiket Anak-anak</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                                            <label for="textarea1">Deskripsi</label>
+                                                            <textarea name="deskripsi" id="textarea1" class="materialize-textarea"></textarea>
+                                                            <label for="deskripsi">Deskripsi</label>
                                                         </div>
                                                     </div>
 
@@ -139,11 +139,12 @@
                                                             <button class="btn cyan waves-effect waves-light" type="submit" name="action">Tambah
                                                                 <i class="mdi-content-send right"></i>
                                                             </button>
-                                                            <a href="#" class="btn red waves-effect waves-light right">Batal
+                                                            <a href="<?php echo base_url() .'wisata_admin'; ?>" class="btn red waves-effect waves-light right">Batal
                                                                 <i class="mdi-content-undo right"></i>
                                                             </a>
                                                         </div>
                                                     </div>
+
                                                 </form>
                                             </div>
                                         </div>

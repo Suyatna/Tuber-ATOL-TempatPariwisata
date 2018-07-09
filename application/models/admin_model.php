@@ -5,6 +5,9 @@
 
     class admin_model extends CI_Model
     {
+        /*        
+        * #region Tampilan Login
+        */
         // Login Admin
         function getDataByUsername($username)
         {
@@ -20,12 +23,25 @@
             return $query;
         }
 
+        /*        
+        * #endregion Tampilan Login
+        */
+
+        /*        
+        * #region Tambah Data Wisata
+        */
+
         // Looking for last id_wisata (FK)
         function getIdWisata()
         {
             // connect query
             $query = $this->db->query("SELECT COUNT(id_wisata) as ID FROM tb_wisata");            
             return $query;            
+        }
+
+        function input_data($data, $table)
+        {
+            $this->db->insert($table, $data);
         }
 
         // Give me data from tb_kabupaten please!
@@ -51,5 +67,9 @@
             $query = $this->db->query("SELECT id_kelurahan, nama_kelurahan FROM tb_kelurahan WHERE id_kecamatan = ".$idKecamatan);            
             return $query;
         }
+
+        /*        
+        * #endregion Tambah Data Wisata
+        */
     }    
 ?>

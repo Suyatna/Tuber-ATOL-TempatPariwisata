@@ -57,6 +57,7 @@ $route['dashboard'] = 'admin_login/index_admin_dashboard';
 // Wisata
 $route['wisata_admin'] = 'admin/wisata_admin';
 $route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
+$route['pos_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
 
 // API WISATA
 $route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';

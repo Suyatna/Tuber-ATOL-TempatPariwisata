@@ -59,7 +59,7 @@
                                                         <td><?php echo $value['latitude']; ?></td>
                                                         <td><?php echo $value['langitude']; ?></td>
                                                         <td><?php echo $value['alamat']; ?></td>
-                                                        <td><?php echo $value['no_tlp']; ?></td>
+                                                        <td><?php echo $value['no_telp']; ?></td>
                                                         <td><?php echo $value['tiket_dewasa']; ?></td>
                                                         <td><?php echo $value['tiket_anak']; ?></td>
                                                         <td><?php echo $value['deskripsi']; ?></td>

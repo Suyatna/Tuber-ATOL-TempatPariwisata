@@ -29,18 +29,72 @@
             $this->load->view('admin/footer');
         }
 
-        public function getKecamatan($idKabupaten) {
+        /*
+        * #region Tampil Data Wisata
+        */
+
+        public function getKecamatan($idKabupaten)
+        {
             $kabupaten = $idKabupaten;
             
             $kecamatan = $this->admin_model->getDataKecamatanByKabupaten($kabupaten)->result();
             echo json_encode($kecamatan);
         }
 
-        public function getKelurahan($idKecamatan) {
+        public function getKelurahan($idKecamatan)
+        {
             $kecamatan = $idKecamatan;
             
             $kelurahan = $this->admin_model->getDataKelurahanByKecamatan($kecamatan)->result();
             echo json_encode($kelurahan);
         }
+
+        /*
+        * #endregion Tampil Data Wisata
+        */
+
+        /*
+        * #region Tambah Data Wisata
+        */
+
+        function tambahDataWisata()
+        {
+            $id_wisata = $this->input->post('id_wisata');
+            $id_kabupaten = $this->input->post('id_kabupaten');
+            $id_kecamatan = $this->input->post('id_kecamatan');
+            $id_kelurahan = $this->input->post('id_kelurahan');
+            $nama_wisata = $this->input->post('nama_wisata');
+            $latitude = $this->input->post('latitude');
+            $langitude = $this->input->post('langitude');
+            $alamat = $this->input->post('alamat');
+            $no_telp = $this->input->post('no_telp');
+            $tiket_dewasa = $this->input->post('tiket_dewasa');
+            $tiket_anak = $this->input->post('tiket_anak');
+            $deskripsi = $this->input->post('deskripsi');
+            $aktifasi = 'Y';
+
+            $data = array (
+                'id_wisata' => $id_wisata,
+                'id_kabupaten' => $id_kabupaten,
+                'id_kecamatan' => $id_kecamatan,
+                'id_kelurahan' => $id_kelurahan,
+                'nama_wisata' => $nama_wisata,
+                'latitude' => $latitude,
+                'langitude' => $langitude,
+                'alamat' => $alamat,
+                'no_telp' => $no_telp,
+                'tiket_dewasa' => $tiket_dewasa,
+                'tiket_anak' => $tiket_anak,
+                'deskripsi' => $deskripsi,
+                'aktifasi' => $aktifasi
+            );
+            // echo json_encode($data);
+            $this->admin_model->input_data($data, 'tb_wisata');
+            redirect('admin/wisata_admin');
+        }
+
+        /*
+        * #endregion Tambah Data Wisata
+        */
     }    
 ?>
