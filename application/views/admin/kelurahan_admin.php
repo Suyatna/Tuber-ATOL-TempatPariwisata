@@ -23,7 +23,7 @@
                                 <hr>
                                 <div class="row">            
                                     <div class="col s12 m8 19">
-                                        <a href="#" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
+                                        <a href="<?php echo base_url() .'tambah_kelurahan_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
                                         <table id="data-table-simple" class="responsive-table display" cellspacing="0">
@@ -33,7 +33,7 @@
                                                     <th>Id Kelurahan</th>
                                                     <th>Id Kecamatan</th>
                                                     <th>Nama Kelurahan</th>
-                                                    <th>Aksi</th>
+                                                    <th style="text-align:center" colspan="2">Aksi</th>
                                                 </tr>
                                             </thead>
                                             
@@ -47,6 +47,9 @@
                                                         <td><?php echo $value['nama_kelurahan']; ?></td>
                                                         <td>
                                                             <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
                                                         </td>
                                                     </tr>                                                                                             
                                                 <?php } ?>

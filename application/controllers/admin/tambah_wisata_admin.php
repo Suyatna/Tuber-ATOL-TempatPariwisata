@@ -89,7 +89,7 @@
                 'aktifasi' => $aktifasi
             );
             // echo json_encode($data);
-            $this->admin_model->input_data($data, 'tb_wisata');
+            $this->admin_model->insertDataWisata($data, 'tb_wisata');
             redirect('admin/wisata_admin');
         }
 

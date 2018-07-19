@@ -19,7 +19,7 @@
         function getDataWisata()
         {
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_wisata");            
+            $query = $this->db->query("SELECT * FROM tb_wisata WHERE aktifasi='T'");            
             return $query;
         }
 
@@ -45,6 +45,21 @@
             return $query;
         }
 
+        function insertDataKabupaten($data, $table)
+        {
+            $this->db->insert($table, $data);
+        }
+
+        function insertDataKecamatan($data, $table)
+        {
+            $this->db->insert($table, $data);
+        }
+
+        function insertDataKelurahan($data, $table)
+        {
+            $this->db->insert($table, $data);
+        }
+
         /*        
         * #endregion Data Kecamatan dan Data Kelurahan
         */
@@ -61,7 +76,7 @@
             return $query;            
         }
 
-        function input_data($data, $table)
+        function insertDataWisata($data, $table)
         {
             $this->db->insert($table, $data);
         }

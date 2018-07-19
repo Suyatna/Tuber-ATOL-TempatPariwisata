@@ -42,7 +42,7 @@
                                                     <th>Tiket Dewasa</th>
                                                     <th>Tiket Anak</th>
                                                     <th> Deskripsi </th>
-                                                    <th> Aksi </th>
+                                                    <th style="text-align:center" colspan="2">Aksi</th>
                                                 </tr>
                                             </thead>
                                             
@@ -65,6 +65,9 @@
                                                         <td><?php echo $value['deskripsi']; ?></td>
                                                         <td>
                                                             <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
                                                         </td>
                                                     </tr>                                                                                             
                                                 <?php } ?>

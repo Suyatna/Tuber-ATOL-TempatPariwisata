@@ -8,7 +8,7 @@
     <!-- CSS--> 
     <link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">    
     
 </head>
 <body>
@@ -23,7 +23,7 @@
                                 <hr>
                                 <div class="row">            
                                     <div class="col s12 m8 19">
-                                        <a href="#" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
+                                        <a href="<?php echo base_url() .'tambah_kabupaten_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
                                         <table id="data-table-simple" class="responsive-table display" cellspacing="0">
@@ -32,7 +32,7 @@
                                                 <tr>                                                    
                                                     <th>Id Kota / Kabupaten</th>
                                                     <th>Nama Kabupaten</th>
-                                                    <th>Aksi</th>
+                                                    <th style="text-align:center" colspan="2">Aksi</th>
                                                 </tr>
                                             </thead>
                                             
@@ -46,8 +46,13 @@
                                                         <td>
                                                             <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
                                                         </td>
-                                                    </tr>                                                                                             
+                                                        <td>
+                                                            <a href="#modal2" data-target="modal2" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
+                                                        </td>
+                                                    </tr>
                                                 <?php } ?>
+
+                                                
 
                                                 <!-- Modal Structure -->
                                                 <div id="modal1" class="modal">
@@ -61,6 +66,7 @@
                                                     <a href="#!" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
                                                     </div>
                                                 </div>
+                                                
                                             </tbody>
 
                                         </table>                            
@@ -74,7 +80,7 @@
             </section>
         </div>
     </div>
-
+        
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.modal');

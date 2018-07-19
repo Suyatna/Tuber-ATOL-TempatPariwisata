@@ -57,16 +57,22 @@ $route['dashboard'] = 'admin_login/index_admin_dashboard';
 // Wisata
 $route['wisata_admin'] = 'admin/wisata_admin';
 $route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
-$route['pos_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
+$route['post_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
 
 // Kota / Kabupaten
 $route['kabupaten_admin'] = 'admin/kabupaten_admin';
+$route['tambah_kabupaten_admin'] = 'admin/tambah_kabupaten_admin';
+$route['post_kabupaten_admin'] = 'admin/tambah_kabupaten_admin/tambahDataKabupaten';
 
 // Kecamatan
 $route['kecamatan_admin'] = 'admin/kecamatan_admin';
+$route['tambah_kecamatan_admin'] = 'admin/tambah_kecamatan_admin';
+$route['post_kecamatan_admin'] = 'admin/tambah_kecamatan_admin/tambahDataKecamatan';
 
 // Kelurahan
 $route['kelurahan_admin'] = 'admin/kelurahan_admin';
+$route['tambah_kelurahan_admin'] = 'admin/tambah_kelurahan_admin';
+$route['post_kelurahan_admin'] = 'admin/tambah_kelurahan_admin/tambahDataKelurahan';
 
 // API WISATA
 $route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';
