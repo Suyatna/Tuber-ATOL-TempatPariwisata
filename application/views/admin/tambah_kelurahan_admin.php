@@ -29,14 +29,7 @@
                                         <div class="card-panel">
                                             <div class="row">
 
-                                                <form class="col s12" action="<?php echo base_url() .'post_wisata_admin'; ?>" method="POST">
-
-                                                    <div class="row">
-                                                        <div class="input-field col s1">
-                                                            <input id="" name="id_wisata" type="text" value="<?php echo $id_wisata; ?>" required readonly>
-                                                            <label for="id_wisata" class="active">ID Wisata</label>
-                                                        </div>
-                                                    </div>
+                                                <form class="col s12" action="<?php echo base_url() .'post_kelurahan_admin'; ?>" method="POST">
                                                     
                                                     <div class="row">
                                                         <div class="input-field col s12">
@@ -69,77 +62,25 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select id="data-kelurahan" name="id_kelurahan" class="materialSelect">
-                                                                <option  value="" disabled selected>Pilih Kecamatan Terlebih Dahulu</option>
-                                                                
-                                                            </select>
-                                                            <label>ID Kelurahann</label>
+                                                            <input id="" name="id_kelurahan" type="text" required>
+                                                            <label for="id_kelurahan">Id Kelurahan</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="" name="nama_wisata" type="text" required>
-                                                            <label for="nama_wisata">Nama Wisata</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input id="" name="latitude" type="number" required>
-                                                            <label for="latitude">Latitude</label>
+                                                            <input id="" name="nama_kelurahan" type="text" required>
+                                                            <label for="nama_kelurahan">Nama Kelurahan</label>
                                                         </div>
 
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input id="" name="langitude" type="number" required>
-                                                            <label for="langitude">Langitude</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <textarea name="alamat" id="textarea1" class="materialize-textarea"></textarea>
-                                                            <label for="alamat">Alamat</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input id="" name="no_telp" type="number" required>
-                                                            <label for="no_telp">Nomor Telp</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input id="" name="tiket_dewasa" type="number" required>
-                                                            <label for="tiket_dewasa">Harga Tiket Dewasa</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input id="" name="tiket_anak" type="number" required>
-                                                            <label for="tiket_anak">Harga Tiket Anak-anak</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <textarea name="deskripsi" id="textarea1" class="materialize-textarea"></textarea>
-                                                            <label for="deskripsi">Deskripsi</label>
-                                                        </div>
-                                                    </div>
+                                                    </div>                                                    
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
                                                             <button class="btn cyan waves-effect waves-light" type="submit" name="action">Tambah
                                                                 <i class="mdi-content-send right"></i>
                                                             </button>
-                                                            <a href="<?php echo base_url() .'wisata_admin'; ?>" class="btn red waves-effect waves-light right">Batal
+                                                            <a href="<?php echo base_url() .'kelurahan_admin'; ?>" class="btn red waves-effect waves-light right">Batal
                                                                 <i class="mdi-content-undo right"></i>
                                                             </a>
                                                         </div>
@@ -180,8 +121,7 @@
                     dataType: 'json'
                 }).done(function(response) {
 
-                    TampilDataKecamatan(response);
-                    HapusDataKelurahan();    
+                    TampilDataKecamatan(response);                      
                 })            
             });
 
@@ -196,7 +136,7 @@
                     dataType: 'json'
                 }).done(function(response) {
 
-                    TampilDataKelurahan(response);                   
+                    //                  
                 })          
             });
         })
@@ -217,33 +157,7 @@
             // fire custom event anytime you've updated select
             $("select#data-kecamatan").trigger('contentChanged');
         }
-
-        function TampilDataKelurahan(response) {
-            let hasilTemplate = '';
-
-            $("select#data-kelurahan").empty();
-
-            for(let index in response) {
-                console.log(response[index]);
-
-                hasilTemplate += "<option value='"+response[index].id_kelurahan+"'>"+response[index].id_kelurahan+" - "+response[index].nama_kelurahan+"</option>"
-            }                            
-
-            $('select#data-kelurahan').html(hasilTemplate)
-
-            // fire custom event anytime you've updated select
-            $("select#data-kelurahan").trigger('contentChanged');
-        }
-
-        function HapusDataKelurahan() {
-            $("select#data-kelurahan").empty();
-
-            $('select#data-kelurahan').html('<option value="" disabled selected>Pilih Kecamatan Terlebih Dahulu</option>')
-
-            // fire custom event anytime you've updated select
-            $("select#data-kelurahan").trigger('contentChanged');
-        }
         
-    </script>        
+    </script>         
 </body>
 </html>
