@@ -52,9 +52,13 @@
                             <button type="submit" name="" class="col s12 btn btn-large waves-effect indigo">Login</button>                            
                         </div>
                     </center>
-                </form>
+                    
+                </form>                
             </div>
         </div>
+        
+        <br>
+        <a href="#!">Create account</a>
     </center>
 
     <div class="section"></div>

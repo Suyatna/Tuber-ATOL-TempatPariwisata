@@ -19,6 +19,17 @@
             $this->load->view('admin/header');
             $this->load->view('admin/wisata_admin', $query);
             $this->load->view('admin/footer');
-        }        
+        }
+        
+        public function hapusWisataAdmin($idWisata)
+        {         
+            $id = $idWisata;   
+            $data = array (
+                'status' => 'hapus'
+            );
+
+            $this->admin_model->deleteDataWisata($id, $data);
+            redirect('admin/wisata_admin');
+        }
     }
 ?>

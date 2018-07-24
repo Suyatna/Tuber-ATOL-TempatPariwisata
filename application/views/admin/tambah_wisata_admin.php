@@ -29,7 +29,7 @@
                                         <div class="card-panel">
                                             <div class="row">
 
-                                                <form class="col s12" action="<?php echo base_url() .'post_wisata_admin'; ?>" method="POST">
+                                                <form class="col s12" action="<?php echo base_url() .'edit_wisata_admin'; ?>" method="POST">
 
                                                     <div class="row">
                                                         <div class="input-field col s1">

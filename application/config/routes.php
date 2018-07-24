@@ -58,11 +58,15 @@ $route['dashboard'] = 'admin_login/index_admin_dashboard';
 $route['wisata_admin'] = 'admin/wisata_admin';
 $route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
 $route['post_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
+$route['hapus_wisata_admin/(:any)'] = 'admin/wisata_admin/hapusWisataAdmin/$1';
+$route['edit_wisata_admin/(:any)'] = 'admin/edit_wisata_admin/index/$1';
+$route['update_wisata_admin'] = 'admin/edit_wisata_admin/updateWisataAdmin';
 
 // Kota / Kabupaten
 $route['kabupaten_admin'] = 'admin/kabupaten_admin';
 $route['tambah_kabupaten_admin'] = 'admin/tambah_kabupaten_admin';
 $route['post_kabupaten_admin'] = 'admin/tambah_kabupaten_admin/tambahDataKabupaten';
+$route['hapus_kabupaten_admin/(:any)'] = 'admin/kabupaten_admin/hapusKabupatenAdmin/$1';
 
 // Kecamatan
 $route['kecamatan_admin'] = 'admin/kecamatan_admin';

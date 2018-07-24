@@ -5,8 +5,8 @@
         {
             parent::__construct();
             $this->load->model('admin_model');
-            $this->load->library('session'); 
-            $this->load->database();          
+            $this->load->library('session');
+            $this->load->database();
             $this->load->helper('url');
 
             date_default_timezone_set('Asia/Jakarta');
@@ -71,7 +71,7 @@
             $tiket_dewasa = $this->input->post('tiket_dewasa');
             $tiket_anak = $this->input->post('tiket_anak');
             $deskripsi = $this->input->post('deskripsi');
-            $aktifasi = 'Y';
+            $aktifasi = 'T';
 
             $data = array (
                 'id_wisata' => $id_wisata,

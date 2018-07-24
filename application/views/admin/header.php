@@ -76,6 +76,7 @@
                     <li class="bold"><a href="<?php echo base_url().'kabupaten_admin'; ?>" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KOTA / KABUPATEN</a>
                     <li class="bold"><a href="<?php echo base_url().'kecamatan_admin'; ?>" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KECAMATAN</a>
                     <li class="bold"><a href="<?php echo base_url().'kelurahan_admin'; ?>" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> KELURAHAN</a>
+                    <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-list"></i>PEMILIK WISATA</a>
                     <li class="bold"><a href="<?php echo base_url().'wisata_admin' ?>" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> WISATA</a>
                     
                 </ul>

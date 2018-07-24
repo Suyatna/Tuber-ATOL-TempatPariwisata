@@ -20,5 +20,16 @@
             $this->load->view('admin/kabupaten_admin', $query);
             $this->load->view('admin/footer');
         }
+
+        public function hapusKabupatenAdmin($idKabupaten)
+        {
+            $id = $idKabupaten;
+            $data = array (
+                'status' => 'hapus'
+            );
+
+            $this->admin_model->deleteDataKabupaten($id, $data);
+            redirect('admin/kabupaten_admin');
+        }
     }
 ?>

@@ -60,6 +60,13 @@
             $this->db->insert($table, $data);
         }
 
+        function deleteDataKabupaten($id, $action)
+        {
+            $this->db->set('status', 'hapus');
+            $this->db->where('id_kabupaten', $id);
+            $this->db->update('tb_kabupaten');
+        }
+
         /*        
         * #endregion Data Kecamatan dan Data Kelurahan
         */
@@ -81,11 +88,24 @@
             $this->db->insert($table, $data);
         }
 
+        function deleteDataWisata($id, $table)
+        {
+            $this->db->set('aktifasi', 'Y');
+            $this->db->where('id_wisata', $id);
+            $this->db->update('tb_wisata');
+        }
+
+        function updateDataWisata($id, $data)
+        {
+            $this->db->where('id_wisata', $id);
+            $this->db->update('tb_wisata', $data);
+        }
+
         // Give me data from tb_kabupaten please!
         function getDataKabupaten()
         {
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_kabupaten");            
+            $query = $this->db->query("SELECT * FROM tb_kabupaten WHERE status='tidak';");            
             return $query;
         }
 
