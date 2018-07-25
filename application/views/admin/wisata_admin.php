@@ -58,7 +58,7 @@
                                 <div class="row">            
                                     <div class="col s12 m8 19">
                                         <a href="<?php echo base_url().'tambah_wisata_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
-                                        <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
+                                        <a href="<?php echo base_url().'excel_wisata_admin'; ?>" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
                                         <br>
                                         <br>

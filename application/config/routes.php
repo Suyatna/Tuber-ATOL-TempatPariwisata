@@ -86,7 +86,7 @@ $route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';
 $route['api/kelurahan/(:any)'] = 'admin/tambah_wisata_admin/getKelurahan/$1';
 
 // Export
-
+$route['excel_wisata_admin'] = 'admin/wisata_admin/exportExcel';
 
 // default
 $route['404_override'] = '';
