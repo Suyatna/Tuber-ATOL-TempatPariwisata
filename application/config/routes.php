@@ -54,6 +54,9 @@ $route['default_controller'] = 'admin_login';
 $route['login']['POST'] = 'admin_login/adminAction';
 $route['dashboard'] = 'admin_login/index_admin_dashboard';
 
+// Logout
+$route['logout'] = 'Admin_logout';
+
 // Wisata
 $route['wisata_admin'] = 'admin/wisata_admin';
 $route['tambah_wisata_admin'] = 'admin/tambah_wisata_admin';
@@ -81,6 +84,9 @@ $route['post_kelurahan_admin'] = 'admin/tambah_kelurahan_admin/tambahDataKelurah
 // API WISATA
 $route['api/kecamatan/(:any)'] = 'admin/tambah_wisata_admin/getKecamatan/$1';
 $route['api/kelurahan/(:any)'] = 'admin/tambah_wisata_admin/getKelurahan/$1';
+
+// Export
+
 
 // default
 $route['404_override'] = '';

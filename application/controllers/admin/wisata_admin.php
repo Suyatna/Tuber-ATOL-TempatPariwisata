@@ -14,7 +14,8 @@
 
         public function index()
         {
-            $query['hasil'] = $this->admin_model->getDataWisata();                              
+            $akses_wilayah = $_SESSION['akses_wilayah'];
+            $query['hasil'] = $this->admin_model->getDataWisata($akses_wilayah);
 
             $this->load->view('admin/header');
             $this->load->view('admin/wisata_admin', $query);

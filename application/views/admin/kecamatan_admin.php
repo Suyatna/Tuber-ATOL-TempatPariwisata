@@ -42,7 +42,7 @@
                                                     foreach ($hasil->result_array() as $value) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $value['id_kecamatan']; ?></td>
+                                                        <td><?php echo $value['id_kecamatan']; $_SESSION['id_kecamatan'] =  $value['id_kecamatan'];?></td>
                                                         <td><?php echo $value['id_kabupaten']; ?></td>
                                                         <td><?php echo $value['nama_kecamatan']; ?></td>
                                                         <td>

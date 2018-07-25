@@ -21,8 +21,9 @@
                 $result['id_wisata'] = $row['ID'] + 1;
             }
 
+            $akses_wilayah = $_SESSION['akses_wilayah'];
             // Connect query again
-            $result['data_kabupaten'] = $this->admin_model->getDataKabupaten();                        
+            $result['data_kecamatan'] = $this->admin_model->getDataKecamatan($akses_wilayah);
 
             $this->load->view('admin/header');
             $this->load->view('admin/tambah_wisata_admin', $result);
@@ -67,7 +68,7 @@
             $latitude = $this->input->post('latitude');
             $langitude = $this->input->post('langitude');
             $alamat = $this->input->post('alamat');
-            $no_telp = $this->input->post('no_telp');
+            $no_tlp = $this->input->post('no_tlp');
             $tiket_dewasa = $this->input->post('tiket_dewasa');
             $tiket_anak = $this->input->post('tiket_anak');
             $deskripsi = $this->input->post('deskripsi');
@@ -82,7 +83,7 @@
                 'latitude' => $latitude,
                 'langitude' => $langitude,
                 'alamat' => $alamat,
-                'no_telp' => $no_telp,
+                'no_tlp' => $no_tlp,
                 'tiket_dewasa' => $tiket_dewasa,
                 'tiket_anak' => $tiket_anak,
                 'deskripsi' => $deskripsi,

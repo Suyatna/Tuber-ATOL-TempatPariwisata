@@ -29,7 +29,7 @@
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             
-            $userData = $this->admin_model->getDataByUsername($username);
+            $userData = $this->admin_model->getDataByNIP($username);
                 
             if ($this->input->method() != 'post')
             {
@@ -43,17 +43,21 @@
             {
                 foreach ($userData->result() as $data)
                 {
-                    $data_user['id_admin'] = $data->id_admin;
-                    $data_user['username'] = $data->username;
+                    $data_user['nip'] = $data->nip;
+                    $data_user['nama'] = $data->nama;
                     $data_user['password'] = $data->password;
-                    $data_user['level'] = $data->level;
+                    $data_user['akses_wilayah'] = $data->akses_wilayah;
                     
-                    $this->session->set_userdata($data_user);                    
+                    $_SESSION['nama'] = $data->nama;
+                    $_SESSION['akses_wilayah'] = $data->akses_wilayah;
+                    
+                    $this->session->set_userdata($data_user);                                    
 
-                    if ($data->level == "SuperAdmin")
-                    {
-                        redirect('dashboard');
-                    }
+                    // if ($data->level == "SuperAdmin")
+                    // {
+                    //     redirect('dashboard');
+                    // }
+                    redirect('dashboard');
                 }
             }
             else

@@ -61,11 +61,11 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                        <a href="<?php echo base_url().'logout'; ?>"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                                     </li>
                                 </ul>
                                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                <p class="user-roal">Administrator</p>
+                                <p class="user-roal"><?php echo $_SESSION['nama'] ?></p>
                             </div>
                         </div>
                     </li>

@@ -16,8 +16,9 @@
         {
             $query['id_wisata'] = $idWisata;
 
+            $akses_wilayah = $_SESSION['akses_wilayah'];
             // Connect query again
-            $query['data_kabupaten'] = $this->admin_model->getDataKabupaten(); 
+            $query['data_kecamatan'] = $this->admin_model->getDataKecamatan($akses_wilayah);
 
             $this->load->view('admin/header');
             $this->load->view('admin/edit_wisata_admin', $query);

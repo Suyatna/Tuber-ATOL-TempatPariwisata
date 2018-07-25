@@ -9,6 +9,8 @@
     <link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Modal Structure -->
     <div id="myModal" class="modal">
@@ -36,6 +38,12 @@
         </div>
     </div>
 
+    <style>
+        .mrm {
+            margin-right:10px;
+        }
+    </style>
+
 </head>
 <body>
     <div id="main">
@@ -52,7 +60,9 @@
                                         <a href="<?php echo base_url().'tambah_wisata_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="#" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
                                         <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
-                                        <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                                        <br>
+                                        <br>
+                                        <table id="example" class="responsive-table display" cellspacing="0">
 
                                             <thead>                  
                                                 <tr>
@@ -68,6 +78,7 @@
                                                     <th>Tiket Dewasa</th>
                                                     <th>Tiket Anak</th>
                                                     <th> Deskripsi </th>
+                                                    <th style="text-align:center" colspan="2">Detail</th>
                                                     <th style="text-align:center" colspan="2">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -89,6 +100,12 @@
                                                         <td><?php echo $value['tiket_dewasa']; ?></td>
                                                         <td><?php echo $value['tiket_anak']; ?></td>
                                                         <td><?php echo $value['deskripsi']; ?></td>
+                                                        <td>
+                                                            <a href="#" data-toggle="#" data-target="#" class="modal-trigger" style="color:purple" rel="tooltip" title="Foto"><i class="material-icons">insert_photo</i>Foto</a> &nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" data-toggle="#" data-target="#" class="modal-trigger" style="color:purple" rel="tooltip" title="Deskripsi"><i class="material-icons">description</i>Deskripsi</a> &nbsp;
+                                                        </td>
                                                         <td>
                                                             <a href="#modal1" data-toggle="modal" data-target="#myModal" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
                                                         </td>
@@ -113,7 +130,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <script>
+
         var tempValueId = "";
 
         $(document).on('hidden.bs.modal', function (e) {
@@ -145,6 +164,8 @@
             console.log(tempValueId);
             location.replace("<?php echo base_url() . 'edit_wisata_admin/'?>" +tempValueId +"<?php ; ?>");
         }
+
+        
     </script>
 </body>
 </html>

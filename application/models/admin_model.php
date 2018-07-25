@@ -9,17 +9,33 @@
         * #region Tampilan Login
         */
         // Login Admin
-        function getDataByUsername($username)
+        function getDataByNIP($username)
         {
-            $query = $this->db->get_where('tb_admin', ['username' => $username]);
+            $query = $this->db->get_where('tb_admin', ['nip' => $username]);
             return $query;
         }
 
         // Calling table tb_wisata
-        function getDataWisata()
+        function getDataWisata($akses_wilayah)
         {
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_wisata WHERE aktifasi='T'");            
+            $query = $this->db->query("SELECT * FROM `tb_kabupaten` WHERE nama_kabupaten = '$akses_wilayah'");
+            foreach ($query->result() as $data)
+            {
+                $data_user['id_kabupaten'] = $data->id_kabupaten;
+                $data_user['nama_kabupaten'] = $data->nama_kabupaten;
+                $data_user['status'] = $data->status;
+
+                $_SESSION['id_kabupaten'] = $data->id_kabupaten;
+                $_SESSION['nama_kabupaten'] = $data->nama_kabupaten;
+                
+                $this->session->set_userdata($data_user);
+            }
+
+            $id_kabupaten = $_SESSION['id_kabupaten'];
+
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_wisata WHERE aktifasi='T' AND id_kabupaten = '$id_kabupaten'");
             return $query;
         }
 
@@ -31,17 +47,65 @@
         * #region Data Kecamatan dan Data Kelurahan
         */        
 
-        function getDataKecamatan()
+        function getDataKecamatan($akses_wilayah)
         {
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_kecamatan");            
+            $query = $this->db->query("SELECT * FROM `tb_kabupaten` WHERE nama_kabupaten = '$akses_wilayah'");
+            foreach ($query->result() as $data)
+            {
+                $data_user['id_kabupaten'] = $data->id_kabupaten;
+                $data_user['nama_kabupaten'] = $data->nama_kabupaten;
+                $data_user['status'] = $data->status;
+
+                $_SESSION['id_kabupaten'] = $data->id_kabupaten;
+                $_SESSION['nama_kabupaten'] = $data->nama_kabupaten;
+                
+                $this->session->set_userdata($data_user);
+            }
+
+            $id_kabupaten = $_SESSION['id_kabupaten'];
+
+            // connect query  
+            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten'");            
             return $query;
         }
 
-        function getDataKelurahan()
-        {
+        function getDataKelurahan($akses_wilayah)
+        {            
+
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_kelurahan");            
+            $query = $this->db->query("SELECT * FROM `tb_kabupaten` WHERE nama_kabupaten = '$akses_wilayah'");
+            foreach ($query->result() as $data)
+            {
+                $data_user['id_kabupaten'] = $data->id_kabupaten;
+                $data_user['nama_kabupaten'] = $data->nama_kabupaten;
+                $data_user['status'] = $data->status;
+
+                $_SESSION['id_kabupaten'] = $data->id_kabupaten;
+                $_SESSION['nama_kabupaten'] = $data->nama_kabupaten;
+                
+                $this->session->set_userdata($data_user);
+            }
+
+            $id_kabupaten = $_SESSION['id_kabupaten'];
+
+            // connect query  
+            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten'");
+            foreach ($query->result() as $data)
+            {
+                $data_user['id_kecamatan'] = $data->id_kecamatan;
+                $data_user['nama_kecamatan'] = $data->nama_kecamatan;
+
+                $_SESSION['id_kecamatan'] = $data->id_kecamatan;
+                $_SESSION['nama_kecamatan'] = $data->nama_kecamatan;
+                
+                $this->session->set_userdata($data_user);
+            }
+
+            $id_kecamatan = $_SESSION['id_kecamatan'];
+
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_kelurahan WHERE id_kecamatan = '$id_kecamatan'");            
             return $query;
         }
 
@@ -105,7 +169,7 @@
         function getDataKabupaten()
         {
             // connect query
-            $query = $this->db->query("SELECT * FROM tb_kabupaten WHERE status='tidak';");            
+            $query = $this->db->query("SELECT * FROM tb_kabupaten WHERE status ='tidak';");            
             return $query;
         }
 
