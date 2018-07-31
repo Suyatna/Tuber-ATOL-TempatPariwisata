@@ -14,23 +14,21 @@
     
     <!-- Modal Structure -->
     <div id="myModal" class="modal">
-    <div class="modal-content">
-        <h4>Peringatan!</h4>
-        <p>Apakah anda ingin menghapus data ini?</p>
-    </div>
+        <div class="modal-content">
+            <h4>Peringatan!</h4>
+            <p>Apakah anda ingin menghapus data ini?</p>
+        </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" id="alert_close" aria-hidden="true"> Tidak</a>
-
             <a href="#!" onclick = "ConfirmDelete()" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
         </div>
     </div>
-
     <!-- Modal Structure -->
     <div id="myModal2" class="modal">
-    <div class="modal-content">
-        <h4>Peringatan!</h4>
-        <p>Apakah anda ingin mengedit data ini?</p>
-    </div>
+        <div class="modal-content">
+            <h4>Peringatan!</h4>
+            <p>Apakah anda ingin mengedit data ini?</p>
+        </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" id="alert_close" aria-hidden="true"> Tidak</a>
 
@@ -59,10 +57,10 @@
                                     <div class="col s12 m8 19">
                                         <a href="<?php echo base_url().'tambah_wisata_admin'; ?>" class="btn blue ">Tambah<i class="mdi-av-playlist-add right"></i></a>
                                         <a href="<?php echo base_url().'excel_wisata_admin'; ?>" class="btn cyan waves-effect waves-light">Excel<i class="mdi-action-print right"></i></a>
-                                        <a class="btn waves-effect waves-light indigo" href="#">PDF<i class="mdi-action-print right"></i></a>
+                                        <a class="btn waves-effect waves-light indigo" href="<?php echo base_url().'pdf_wisata_admin'; ?>">PDF<i class="mdi-action-print right"></i></a>
                                         <br>
                                         <br>
-                                        <table id="example" class="responsive-table display" cellspacing="0">
+                                        <table id="data-table-simple" class="responsive-table display" cellspacing="0">
 
                                             <thead>                  
                                                 <tr>
@@ -101,16 +99,16 @@
                                                         <td><?php echo $value['tiket_anak']; ?></td>
                                                         <td><?php echo $value['deskripsi']; ?></td>
                                                         <td>
-                                                            <a href="#" data-toggle="#" data-target="#" class="modal-trigger" style="color:purple" rel="tooltip" title="Foto"><i class="material-icons">insert_photo</i>Foto</a> &nbsp;
+                                                            <a href="#" onclick="PhotoSection()" style="color:purple" rel="tooltip" title="Foto"><i class="material-icons">insert_photo</i>Foto</a> &nbsp;
                                                         </td>
                                                         <td>
-                                                            <a href="#" data-toggle="#" data-target="#" class="modal-trigger" style="color:purple" rel="tooltip" title="Deskripsi"><i class="material-icons">description</i>Deskripsi</a> &nbsp;
+                                                            <a href="#" onclick="DetailWisata()" style="color:purple" rel="tooltip" title="Deskripsi"><i class="material-icons">description</i>Deskripsi</a> &nbsp;
                                                         </td>
                                                         <td>
                                                             <a href="#modal1" data-toggle="modal" data-target="#myModal" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
                                                         </td>
                                                         <td>
-                                                            <a href="#modal1" data-toggle="modal" data-target="#myModal2" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
+                                                            <a href="#modal2" data-toggle="modal" data-target="#myModal2" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
                                                         </td>
                                                     </tr>                                                                                             
                                                 <?php } ?>                                                
@@ -135,6 +133,10 @@
 
         var tempValueId = "";
 
+    //    $(document).ready(function(){
+    //         $('.modal').modal();
+    //     });
+
         $(document).on('hidden.bs.modal', function (e) {
             var target = $(e.target);
             target.removeData('bs.modal')
@@ -145,13 +147,13 @@
             $(this).addClass('selected').siblings().removeClass('selected');    
             var value = $(this).find('td:first').html();
             // alert(value);            
-            // console.log(value);
-            tempValueId = value;                  
+            console.log(value);
+            tempValueId = value;                 
         });
 
-        $('.ok').on('click', function(e) {
-            // alert($("#data-table-simple tr.selected td:first").html());            
-        });
+        // $('.ok').on('click', function(e) {
+        //     alert($("#data-table-simple tr.selected td:first").html());            
+        // });
 
         function ConfirmDelete()
         {
@@ -165,6 +167,27 @@
             location.replace("<?php echo base_url() . 'edit_wisata_admin/'?>" +tempValueId +"<?php ; ?>");
         }
 
+        function PhotoSection()
+        {
+            $("#data-table-simple tr").click(function() {
+                $(this).addClass('selected').siblings().removeClass('selected');    
+                var value = $(this).find('td:first').html();                          
+                console.log("function: " +value);
+
+                location.replace("<?php echo base_url() . 'foto_wisata_admin/'?>" +value +"<?php ; ?>");
+            });            
+        }
+
+        function DetailWisata()
+        {
+            $("#data-table-simple tr").click(function() {
+                $(this).addClass('selected').siblings().removeClass('selected');    
+                var value = $(this).find('td:first').html();                          
+                console.log("function: " +value);
+
+                location.replace("<?php echo base_url() . 'detail_wisata/'?>" +value +"<?php ; ?>");
+            });            
+        }
         
     </script>
 </body>

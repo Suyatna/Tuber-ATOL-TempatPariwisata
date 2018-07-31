@@ -32,7 +32,7 @@
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" id="alert_close" aria-hidden="true"> Tidak</a>
 
-            <a href="#!" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
+            <a href="#!" onclick = "ConfirmEdit()" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
         </div>
     </div>
 
@@ -116,9 +116,14 @@
 
         function ConfirmDelete()
         {
-            console.log(tempValueId);
-            var temp = "hapus_kabupaten_admin/" +tempValueId;
+            console.log(tempValueId);            
             location.replace("<?php echo base_url() . 'hapus_kabupaten_admin/'?>" +tempValueId +"<?php ; ?>");
+        }
+
+        function ConfirmEdit()
+        {
+            console.log(tempValueId);            
+            location.replace("<?php echo base_url() . 'edit_kabupaten_admin/'?>" +tempValueId +"<?php ; ?>");
         }
     </script>
 </body>

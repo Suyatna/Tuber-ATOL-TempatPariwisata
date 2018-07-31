@@ -64,17 +64,28 @@ $route['post_wisata_admin'] = 'admin/tambah_wisata_admin/tambahDataWisata';
 $route['hapus_wisata_admin/(:any)'] = 'admin/wisata_admin/hapusWisataAdmin/$1';
 $route['edit_wisata_admin/(:any)'] = 'admin/edit_wisata_admin/index/$1';
 $route['update_wisata_admin'] = 'admin/edit_wisata_admin/updateWisataAdmin';
+$route['detail_wisata/(:any)'] = 'admin/detail_wisata/index/$1';
+$route['tambah_detail_wisata'] = 'admin/detail_wisata/insertFasilitas';
+
+// Foto Wisata
+$route['foto_wisata_admin/(:any)'] = 'admin/foto_wisata_admin/index/$1';
+$route['post_foto_wisata_admin/(:any)'] = 'admin/foto_wisata_admin/insertPhoto/$1';
+$route['v_upload'] = 'upload';
 
 // Kota / Kabupaten
 $route['kabupaten_admin'] = 'admin/kabupaten_admin';
 $route['tambah_kabupaten_admin'] = 'admin/tambah_kabupaten_admin';
 $route['post_kabupaten_admin'] = 'admin/tambah_kabupaten_admin/tambahDataKabupaten';
 $route['hapus_kabupaten_admin/(:any)'] = 'admin/kabupaten_admin/hapusKabupatenAdmin/$1';
+$route['edit_kabupaten_admin/(:any)'] = 'admin/edit_kabupaten_admin/index/$1';
+$route['update_kabupaten_admin'] = 'admin/edit_kabupaten_admin/updateKabupatenAdmin';
 
 // Kecamatan
 $route['kecamatan_admin'] = 'admin/kecamatan_admin';
 $route['tambah_kecamatan_admin'] = 'admin/tambah_kecamatan_admin';
 $route['post_kecamatan_admin'] = 'admin/tambah_kecamatan_admin/tambahDataKecamatan';
+$route['hapus_kecamatan_admin/(:any)'] = 'admin/kecamatan_admin/hapusKecamatanAdmin/$1';
+$route['edit_kecamatan_admin/(:any)'] = 'admin/edit_kecamatan_admin/index/$1';
 
 // Kelurahan
 $route['kelurahan_admin'] = 'admin/kelurahan_admin';
@@ -87,6 +98,7 @@ $route['api/kelurahan/(:any)'] = 'admin/tambah_wisata_admin/getKelurahan/$1';
 
 // Export
 $route['excel_wisata_admin'] = 'admin/wisata_admin/exportExcel';
+$route['pdf_wisata_admin'] = 'admin/wisata_admin/exportPdf';
 
 // default
 $route['404_override'] = '';

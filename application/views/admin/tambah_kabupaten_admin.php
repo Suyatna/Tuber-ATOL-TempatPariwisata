@@ -17,6 +17,7 @@
             <section id="content">
                 <div class="container">
                     <div class="section">
+
                         <div class="divider">
                         </div>
                         <!--Basic Form-->
@@ -51,7 +52,7 @@
                                                             <button class="btn cyan waves-effect waves-light" type="submit" name="action">Tambah
                                                                 <i class="mdi-content-send right"></i>
                                                             </button>
-                                                            <a href="#" class="btn red waves-effect waves-light right">Batal
+                                                            <a href="<?php echo base_url() .'kabupaten_admin'; ?>" class="btn red waves-effect waves-light right">Batal
                                                                 <i class="mdi-content-undo right"></i>
                                                             </a>
                                                         </div>
@@ -62,8 +63,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>

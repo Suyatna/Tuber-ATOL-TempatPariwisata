@@ -66,7 +66,7 @@
             $id_kabupaten = $_SESSION['id_kabupaten'];
 
             // connect query  
-            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten'");            
+            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten' AND status = 'tidak'");            
             return $query;
         }
 
@@ -90,7 +90,7 @@
             $id_kabupaten = $_SESSION['id_kabupaten'];
 
             // connect query  
-            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten'");
+            $query = $this->db->query("SELECT * FROM tb_kecamatan WHERE id_kabupaten = '$id_kabupaten' AND status = 'tidak'");
             foreach ($query->result() as $data)
             {
                 $data_user['id_kecamatan'] = $data->id_kecamatan;
@@ -131,6 +131,13 @@
             $this->db->update('tb_kabupaten');
         }
 
+        function deleteDataKecamatan($id, $action)
+        {
+            $this->db->set('status', 'hapus');
+            $this->db->where('id_kecamatan', $id);
+            $this->db->update('tb_kecamatan');
+        }
+
         /*        
         * #endregion Data Kecamatan dan Data Kelurahan
         */
@@ -165,12 +172,30 @@
             $this->db->update('tb_wisata', $data);
         }
 
+        function detailWisata($idWisata)
+        {
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_detail_wisata WHERE id_wisata = '$idWisata';");            
+            return $query;
+        }
+
+        function insertDataDetailWisata($data, $table)
+        {
+            $this->db->insert($table, $data);
+        }
+
         // Give me data from tb_kabupaten please!
         function getDataKabupaten()
         {
             // connect query
             $query = $this->db->query("SELECT * FROM tb_kabupaten WHERE status ='tidak';");            
             return $query;
+        }
+
+        function updateDataKabupaten($idKabupaten, $data)
+        {
+            $this->db->where('id_kabupaten', $id);
+            $this->db->update('tb_kabupaten', $data);
         }
 
         // Give me data from tb_kecamatan also
@@ -186,6 +211,81 @@
         {
             // connect query
             $query = $this->db->query("SELECT id_kelurahan, nama_kelurahan FROM tb_kelurahan WHERE id_kecamatan = ".$idKecamatan);            
+            return $query;
+        }
+
+        function getIdGambar()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_gambar) as ID FROM tb_gambar_wisata");            
+            return $query;
+        }
+
+        // Calling tb_gambar_wisata
+        function getDataGambar($idWisata)
+        {
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_wisata WHERE id_wisata = '$idWisata'");
+            foreach ($query->result() as $data)
+            {
+                $data_user['nama_wisata'] = $data->nama_wisata;                
+                $data_user['alamat'] = $data->alamat;
+
+                $_SESSION['nama_wisata'] = $data->nama_wisata;                
+                $_SESSION['alamat'] = $data->alamat;                
+                
+                $this->session->set_userdata($data_user);
+            }
+            
+            // connect query
+            $query = $this->db->query("SELECT * FROM tb_gambar_wisata WHERE id_wisata = '$idWisata'");
+            return $query;
+        }
+
+        function insertDataGambar($data, $table)
+        {
+            $this->db->insert($table, $data);
+        }
+
+        function countAdmin()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(nip) as nip FROM tb_admin");
+            return $query;
+        }
+
+        function countKabupaten()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_kabupaten) as id_kabupaten FROM tb_kabupaten");
+            return $query;
+        }
+
+        function countKecamatan()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_kecamatan) as id_kecamatan FROM tb_kecamatan");
+            return $query;
+        }
+
+        function countKelurahan()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_kelurahan) as id_kelurahan FROM tb_kelurahan");
+            return $query;
+        }
+
+        function countWisata()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_wisata) as id_wisata FROM tb_wisata");
+            return $query;
+        }
+
+        function countGambarWisata()
+        {
+            // connect query
+            $query = $this->db->query("SELECT COUNT(id_gambar) as id_gambar FROM tb_gambar_wisata");
             return $query;
         }
 

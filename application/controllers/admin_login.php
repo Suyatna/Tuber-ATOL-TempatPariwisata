@@ -20,8 +20,50 @@
         }
 
         public function index_admin_dashboard(){
+            // Connect query
+            $query = $this->admin_model->countAdmin();
+
+            foreach ($query->result_array() as $row) {
+                $result['nip'] = $row['nip'];
+            }
+
+            // Connect query
+            $query = $this->admin_model->countKabupaten();
+
+            foreach ($query->result_array() as $row) {
+                $result['id_kabupaten'] = $row['id_kabupaten'];
+            }
+
+            // Connect query
+            $query = $this->admin_model->countKecamatan();
+
+            foreach ($query->result_array() as $row) {
+                $result['id_kecamatan'] = $row['id_kecamatan'];
+            }
+
+            // Connect query
+            $query = $this->admin_model->countKelurahan();
+
+            foreach ($query->result_array() as $row) {
+                $result['id_kelurahan'] = $row['id_kelurahan'];
+            }
+
+            // Connect query
+            $query = $this->admin_model->countWisata();
+
+            foreach ($query->result_array() as $row) {
+                $result['id_wisata'] = $row['id_wisata'];
+            }
+
+            // Connect query
+            $query = $this->admin_model->countGambarWisata();
+
+            foreach ($query->result_array() as $row) {
+                $result['id_gambar'] = $row['id_gambar'];
+            }
+
             $this->load->view('admin/header');
-            $this->load->view('admin/dashboard');
+            $this->load->view('admin/dashboard', $result);
             $this->load->view('admin/footer');
         }
 

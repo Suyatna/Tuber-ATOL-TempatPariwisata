@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 5.7.21 : Database - db_atol_tubes
+MySQL - 10.1.30-MariaDB : Database - db_atol_tubes_v1
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 5.7.21 : Database - db_atol_tubes
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_atol_tubes` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_atol_tubes_v1` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `db_atol_tubes`;
+USE `db_atol_tubes_v1`;
 
 /*Table structure for table `tb_admin` */
 
@@ -31,10 +31,10 @@ CREATE TABLE `tb_admin` (
 /*Data for the table `tb_admin` */
 
 insert  into `tb_admin`(`nip`,`nama`,`password`,`akses_wilayah`) values 
-('201805080101011991','Admin Dinas Kota Bandung','1b4dff8daa4b237654675988d553dec6fcc95df1','KOTA BANDUNG'),
-('201805080201021991','Admin Kabupaten Bandung','851651610a8016f00da791a47f280daf229cd09b','KABUPATEN BANDUNG'),
-('201805080301031991','Admin Dinas Kota Cimahi','b9bbce4086f62815661a8ff6c0c86e8407a4e191','KOTA CIMAHI'),
-('201805080401041991','Admin Dinas Kabupaten Bandung Barat','d2a2ad615a112a39aed57b198d4e269f382a2ba8','KABUPATEN BANDUNG BARAT');
+('2018012345011991','Admin Dinas Kota Bandung','54321','KOTA BANDUNG'),
+('2018012345021991','Admin Dinas Kabupaten Bandung','54321','KABUPATEN BANDUNG'),
+('2018012345031991','Admin Dinas Kota Cimahi','54321','KOTA CIMAHI'),
+('2018012345041991','Admin Dinas Kabupaten Bandung Barat','54321','KABUPATEN BANDUNG BARAT');
 
 /*Table structure for table `tb_detail_wisata` */
 
@@ -61,9 +61,67 @@ CREATE TABLE `tb_gambar_wisata` (
   PRIMARY KEY (`id_gambar`),
   KEY `id_wisata` (`id_wisata`),
   CONSTRAINT `tb_gambar_wisata_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `tb_wisata` (`id_wisata`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_gambar_wisata` */
+
+insert  into `tb_gambar_wisata`(`id_gambar`,`id_wisata`,`gambar`) values 
+(1,1,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Museum Geologi\\museum1.jpg'),
+(2,1,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Museum Geologi\\museum2.jpg'),
+(3,1,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Museum Geologi\\museum3.jpg'),
+(4,2,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Saung Angklung Udjo\\saung1.jpg'),
+(5,2,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Saung Angklung Udjo\\saung2.jpg'),
+(6,2,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Saung Angklung Udjo\\saung3.jpg'),
+(7,3,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Trans Studio Bandung\\tsb1.jpg'),
+(8,3,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Trans Studio Bandung\\tsb2.jpg'),
+(9,3,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Trans Studio Bandung\\tsb3.jpg'),
+(10,4,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Balaikota Bandung\\taman1.jpg'),
+(11,4,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Balaikota Bandung\\taman2.jpg'),
+(12,4,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Balaikota Bandung\\taman3.jpg'),
+(13,5,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Upside Down World\\up1.jpg'),
+(14,5,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Upside Down World\\up2.jpg'),
+(15,5,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Upside Down World\\up3.jpg'),
+(16,6,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Amazing Art World\\amazing1.jpg'),
+(17,6,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Amazing Art World\\amazing2.jpg'),
+(18,6,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Amazing Art World\\amazing3.jpg'),
+(19,7,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Lactasari Mini Farm\\lactasari1.jpg'),
+(20,7,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Lactasari Mini Farm\\lactasari2.jpg'),
+(21,7,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Lactasari Mini Farm\\lactasari3.jpg'),
+(22,8,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kebun Binatang Bandung\\kebun1.jpg'),
+(23,8,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kebun Binatang Bandung\\kebun2.jpg'),
+(24,8,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kebun Binatang Bandung\\kebun3.jpg'),
+(25,9,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Babakan Siliwangi\\babakan1.jpg'),
+(26,9,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Babakan Siliwangi\\babakan2.jpg'),
+(27,9,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Babakan Siliwangi\\babakan3.jpg'),
+(28,10,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Teras Cikapundung\\teras1.jpg'),
+(29,10,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Teras Cikapundung\\teras2.jpg'),
+(30,10,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Teras Cikapundung\\teras3.jpg'),
+(31,11,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Gedung Sate\\gedungsate1.jpg'),
+(32,11,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Gedung Sate\\gedungsate2.jpg'),
+(34,11,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Gedung Sate\\gedungsate3.jpg'),
+(35,12,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kampung Tulip\\kampungtulip1.jpg'),
+(36,12,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kampung Tulip\\kampungtulip2.jpg'),
+(37,12,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Kampung Tulip\\kampungtulip3.jpg'),
+(38,13,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Alun-Alun Bandung\\alun-alunbandung1.jpg'),
+(39,13,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Alun-Alun Bandung\\alun-alunbandung2.jpg'),
+(40,13,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Alun-Alun Bandung\\alun-alunbandung3.jpg'),
+(41,14,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Bandung Science Center\\bandungsciencecenter1.jpg'),
+(42,14,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Bandung Science Center\\bandungsciencecenter2.jpg'),
+(43,14,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Bandung Science Center\\bandungsciencecenter3.jpg'),
+(44,15,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Peta\\tamanpeta1.jpg'),
+(45,15,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Peta\\tamanpeta2.jpg'),
+(46,15,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Peta\\tamanpeta3.jpg'),
+(47,16,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Hutan Raya Juanda\\tahura1.jpg'),
+(48,16,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Hutan Raya Juanda\\tahura2.jpg'),
+(49,16,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Hutan Raya Juanda\\tahura3.jpg'),
+(50,17,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Rabbit Town\\rabbittown1.jpg'),
+(51,17,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Rabbit Town\\rabbittown2.jpg'),
+(52,17,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Rabbit Town\\rabbittown3.jpg'),
+(53,18,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Monumen Perjuangan\\monumen1.jpg'),
+(54,18,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Monumen Perjuangan\\monumen2.jpg'),
+(55,18,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Monumen Perjuangan\\monumen3.jpg'),
+(56,19,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Film\\tamanfilm1.jpg'),
+(57,19,'D:\\Tugas Besar\\Foto Wisata\\Kota Bandung\\Taman Film\\tamanfilm2.jpg');
 
 /*Table structure for table `tb_kabupaten` */
 
@@ -72,16 +130,17 @@ DROP TABLE IF EXISTS `tb_kabupaten`;
 CREATE TABLE `tb_kabupaten` (
   `id_kabupaten` char(4) NOT NULL,
   `nama_kabupaten` varchar(50) NOT NULL,
+  `status` enum('hapus','tidak') DEFAULT NULL,
   PRIMARY KEY (`id_kabupaten`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_kabupaten` */
 
-insert  into `tb_kabupaten`(`id_kabupaten`,`nama_kabupaten`) values 
-('3204','KABUPATEN BANDUNG'),
-('3217','KABUPATEN BANDUNG BARAT'),
-('3273','KOTA BANDUNG'),
-('3277','KOTA CIMAHI');
+insert  into `tb_kabupaten`(`id_kabupaten`,`nama_kabupaten`,`status`) values 
+('3204','KABUPATEN BANDUNG','tidak'),
+('3217','KABUPATEN BANDUNG BARAT','tidak'),
+('3273','KOTA BANDUNG','tidak'),
+('3277','KOTA CIMAHI','tidak');
 
 /*Table structure for table `tb_kecamatan` */
 
@@ -847,7 +906,7 @@ CREATE TABLE `tb_wisata` (
   CONSTRAINT `tb_wisata_ibfk_1` FOREIGN KEY (`id_kabupaten`) REFERENCES `tb_kabupaten` (`id_kabupaten`),
   CONSTRAINT `tb_wisata_ibfk_2` FOREIGN KEY (`id_kecamatan`) REFERENCES `tb_kecamatan` (`id_kecamatan`),
   CONSTRAINT `tb_wisata_ibfk_3` FOREIGN KEY (`id_kelurahan`) REFERENCES `tb_kelurahan` (`id_kelurahan`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_wisata` */
 
@@ -871,7 +930,7 @@ insert  into `tb_wisata`(`id_wisata`,`id_kabupaten`,`id_kecamatan`,`id_kelurahan
 (17,'3273','3273260','3273260002','Rabbit Town','-6.867163','107.610379','Jalan Ranca Bentang No.30-32, Ciumbuleuit, Rancabentang, Cidadap, Ciumbuleuit, Cidadap, Kota Bandung, Jawa Barat 40142\r\n','02264404848',25000,25000,'Tempat wisata yang berkonsep taman kelinci hanya saja dikemas dalam bentuk yang lebih modern.\r\n','T'),
 (18,'3273','3273230','3273230003','Monumen Perjuangan','-6.893374','107.618578','Jalan Dipatiukur No.48, Lebakgede, Coblong, Lebakgede, Coblong, Kota Bandung, Jawa Barat 40132\r\n','0222506771',0,0,'Monumen Perjuangan Rakyat Jawa Barat (Monju) adalah Museum Sejarah Perjuangan Rakyat Jawa Barat, di Tatar Pasundan atau Parahyangan. Monumen diresmikan penggunaanya oleh Gubernur Jawa Barat, Raden Nana Nuriana pada tanggal 23 Agustus 1995\r\n','T'),
 (19,'3273','3273200','3273200001','Taman Film','-6.898597','107.607785','Jl. Layang Pasupati, Tamansari, Bandung Wetan, Kota Bandung, Jawa Barat 40116\r\n','-',0,0,'Lokasi Taman Film ini terbilang unik yaitu dibawah Jalan Layang Pasupati. Berkonsep sebagai bioskop terbuka, Taman Film ini dibuat dengan tujuan menambah tempat wisata Kota Bandung bagi warga lokal untuk berkumpul menonton film dan saling bercengkrama.\r\n','T'),
-(20,'3273','3204310','3204310002','Kampung Bamboo','-6.871260','107.667033','Jl. Terusan Padasuka KM.4, Cimenyan, Kota Bandung, Jawa Barat 40197\r\n','081322240483',55000,40000,'Konsep wisata Kampung Bamboo sendiri mengambil tema wisata “Outbound, Pendidikan Lingkungan dan Konservasi Bambu“, dan khusus untuk pelestarian bambunya sangat mirip dengan di Cafe Kebon Awi Kaffie\r\n','T'),
+(20,'3204','3204310','3204310002','Kampung Bamboo','-6.871260','107.667033','Jl. Terusan Padasuka KM.4, Cimenyan, Kota Bandung, Jawa Barat 40197\r\n','081322240483',55000,40000,'Konsep wisata Kampung Bamboo sendiri mengambil tema wisata “Outbound, Pendidikan Lingkungan dan Konservasi Bambu“, dan khusus untuk pelestarian bambunya sangat mirip dengan di Cafe Kebon Awi Kaffie\r\n','T'),
 (21,'3204','3204300','3204300006','Curug Cilengkrang','-6.890023','107.731416','Cilengkrang, Bandung, West Java 40615\r\n','0817613246',5000,5000,'\"Berwisata menikmati pesona Tempat Wisata di Bandung yang menawarkan keindahan air terjunnya memang mengasyikan, salah satunya ada di Curug Cilengkrang.\r\n\r\n\"\r\n','T'),
 (22,'3204','3204310','3204310002','CARTIL','-6.855212','107.666537','Jl. Terusan Padasuka, Cimenyan, Bandung, Jawa Barat 40197\r\n','-',0,0,'Cartil atau Caringin Tilu pun memiliki daya tarik serta pesona tersendiri akan keindahan wisata alamnya dengan terbentangnya pegunungan yang tampak menghampar dan terhubung antara yang satu dengan yang lainnya, serta berundak undak.Sehingga bagi para penyuka ketenangan di alam terbuka pegunungan,Caringin tilu bisa dijadikan tempat liburan anda bersama keluarga atau pasangan juga teman,untuk refreshing dan rileksasi dari berbagai persoalan hidup dan rutinitas kerja sehari-hari.\r\n','T'),
 (23,'3204','3204290','3204290006','Wisata Batu Kuda','-6.893605','107.744394','Cibiru Wetan, Cileunyi, Bandung, West Java 40625\r\n','-',10000,10000,'\"Destinasi wisata di Bandung memang tidak pernah ada habisnya. Seperti di Bandung Timur ada sebuah destinasi wisata yang unik dan sedikit misterus. Lokasinya berada di perbukitan Gunung Manglayang. Namanya sendiri adalah situs Batu Kuda, sebuah tempat wisata yang indah den segar. Situs Batu Kuda ini juga merupakan aset Perum Perhutani yang berada di wilayah Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung.\r\n\r\n\"\r\n','T'),
@@ -889,7 +948,31 @@ insert  into `tb_wisata`(`id_wisata`,`id_kabupaten`,`id_kecamatan`,`id_kelurahan
 (35,'3217','3217120','3217120015','Curug Maribaya Waterfall','-6.830309','107.656460','Kampung Cikondang, Lamajang, Pangalengan, Cibodas, Lembang, Cibodas, Lembang, Kabupaten Bandung Barat, Jawa Barat 40391\r\n','02282228',35000,35000,'Air terjun dengan jejeran pohon yang menenangkan dengan kolam renang, air panas, & restoran.\r\n','T'),
 (36,'3217','3217120','3217120001','Farm House','-6.832985','107.605669','Jalan Raya Lembang No.108, Gudangkahuripan, Lembang, Kabupaten Bandung Barat,\r\n','02282782400',20000,20000,'Tempat wisata baru ini sangat fenomenal, unik dan pastinya berbeda dengan konsep wisata lainnya yang sudah ada di Bandung, sebuah kawasan wisata terpadu berkonsep perkebunan dan peternakan ala Eropa yang populer dengan sebutan Farm House Susu Lembang\r\n','T'),
 (37,'3277','3277030','3277030004','Wisata Alam Cimahi','-6.8410387','107.5488993','Jl. Kolonel Masturi KM.4 No.157, Cipageran, Cimahi Utara, Kota Cimahi, Jawa Barat 40511\r\n','0222700228',0,0,'Alam Wisata Cimahi adalah kombinasi antara tempat wisata alam dan wahana. Tempat wisata alam Cimahi ini didirikan sejak tahun 2009 dan semakin ramai dikunjungi.\r\nDaya tarik utama tempat wisata keluarga  di Cimahi ini adalah pemandangan dan wahana. Meski demikian, tempat wisata di Cimahi ini juga menyediakan pesona kuliner yang cukup menarik.\r\n','T'),
-(38,'3217','3217100','3217100004','Paku Haji','-6.8386924','107.5366191','Jl. Haji Ghofur Km. 4, RT02/RW10, Pakuhaji, Ngamprah, Pakuhaji, Ngamprah, Kabupaten Bandung Barat, Jawa Barat 40552','081322272623',0,0,'Untuk mencapai tempat wisata yang indah di Cimahi ini anda harus menempuh medan yang lumayan sulit. Meski demikian, kepuasan yang akan anda peroleh akan terbayar.\r\nApalagi setelah anda menyaksikan hamparan hijau di tempat wisata Taman Paku Haji ini. Mirip dengan AWC, tempat wisata keluarga ini juga menawarkan pemandangan yang indah.\r\nDilengkapi dengan fasilitas wahana alam yang cukup menantang, termasuk mengendarai kuda. Tempat wisata keluarga di Cimahi ini mempunyai luas sekitar 10 hektar dengan pemandangan yang sayang untuk anda lewatkan.','T');
+(38,'3217','3217100','3217100004','Paku Haji','-6.8386924','107.5366191','Jl. Haji Ghofur Km. 4, RT02/RW10, Pakuhaji, Ngamprah, Pakuhaji, Ngamprah, Kabupaten Bandung Barat, Jawa Barat 40552','081322272623',0,0,'Untuk mencapai tempat wisata yang indah di Cimahi ini anda harus menempuh medan yang lumayan sulit. Meski demikian, kepuasan yang akan anda peroleh akan terbayar.\r\nApalagi setelah anda menyaksikan hamparan hijau di tempat wisata Taman Paku Haji ini. Mirip dengan AWC, tempat wisata keluarga ini juga menawarkan pemandangan yang indah.\r\nDilengkapi dengan fasilitas wahana alam yang cukup menantang, termasuk mengendarai kuda. Tempat wisata keluarga di Cimahi ini mempunyai luas sekitar 10 hektar dengan pemandangan yang sayang untuk anda lewatkan.','T'),
+(39,'3273','3273170','3273170001','Museum Konferensi Asia Afrika','-6.921208','107.609534','Jl. Asia Afrika No.65, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111','0224233564',0,0,'Museum Konferensi Asia Afrika merupakan salah satu museum yang berada di kota Bandung yang terletak di Jalan Asia Afrika No. 65. Museum ini merupakan memorabilia Konferensi Asia Afrika','T'),
+(40,'3273','3273170','3273170004','Taman Vanda','-6.914037','107.610185','Jl. Merdeka No.9, Babakan Ciamis, Sumur Bandung, Kota Bandung, Jawa Barat 40117','-',0,0,'taman vanda sendiri adalah merupakan sebuah taman yang cukup unik berbentuk segitiga dengan luas sekitar 2.000 m2. Sekelilingnya di tembok, sementara di bagian tengahnya ditanami aneka tanaman hias serta kolam air mancur.','T'),
+(41,'3273','3273230','3273230002','Taman Pasupati / Taman Jomblo','-6.898100','107.609251','Jl. Tamansari No.66, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40132','-',0,0,'Taman Pasupati, atau lebih dikenal dengan sebutan Taman Jomblo, adalah sebuah taman yang terletak di bawah Jembatan Pasupati, Bandung, Jawa Barat. ','T'),
+(42,'3273','3273180','3273180005','Chinatown','-6.917266','107.593110','Jl. Kelenteng No.41, Ciroyom, Andir, Kota Bandung, Jawa Barat 40182','0226038114',10000,10000,'Chinatown merupakan tempat nongkrong yang beretniskan negeri China sehingga cocok pula dijadikan tempat spot foto yang unik dan menarik.','T'),
+(43,'3273','3273050','3273050002','Museum Sri Baduga','-6.937673','107.603522','Jl. BKR No.185, Pelindung Hewan, Astanaanyar, Kota Bandung, Jawa Barat 40243','0225210976',2500,2500,'Museum ini didirikan pada tahun 1974 dengan memanfaatkan bangunan lama bekas Kawedanan Tegallega','T'),
+(44,'3273','3273170','3273170004','Taman Sejarah Bandung','-6.910322','107.609818','Jl. Aceh No.53, Babakan Ciamis, Sumur Bandung, Kota Bandung, Jawa Barat 40117','-',0,0,' Taman ini menjadi Tempat Wisata Edukasi di Bandung terutama bagi kalangan anak-anak dan remaja yang ingin mengetahui sejarah atau Legenda Bandung dari masa ke masa.','T'),
+(45,'3273','3273170','3273170001','Museum Wangsit Mandala Siliwangi','-6.917659','107.611272','Jl. Lembong No.38, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111','0224203393',0,0,'Museum Wangsit Mandala Siliwangi adalah museum militer yang berada di Kota Bandung','T'),
+(46,'3217','3217120','3217120014','Puncak Eurad Pingping','-6.791339','107.681954','perbatasan antara cibodas dan Ciater Wangunharja, Lembang, Kabupaten Bandung Barat','-',0,0,'Spot ini merupakan wisata baru yang mulai dikembangkan dengan panorama alam pegunungan dan lanskap dataran rendah di bawahnya. Lokasi Puncak Eurad ini sangat kekinian dengan mengambil tema gardu pandang ala ala Jurang Tembelan atau kebanyakan tempat wisata yang hits saat ini.','T'),
+(47,'3217','3217020','3217020002','Curug Ngebul','-7.009425','107.200968','Sindangjaya, Gununghalu, Kabupaten Bandung Barat, Jawa Barat 40565, tepatnya berada di perbatasan Bandung-Cianjur Jawa Barat','-',10000,10000,'Kawasan wisata alam yang satu ini memiliki daya tarik sendiri, yaitu keunikan dari curug atau air terjun yang dimilikinya. Selain itu, pemandangan di curug ini juga sangat luar biasa indahnya, dengan keindahannya itu mampu memikat para wisatawan yang berkunjung ke kawasan tersebut.','T'),
+(48,'3217','3217120','3217120003','Dago Dream Park','-6.848306','107.626005','Alamat Dago Dream Park berada di Jl. Dago Giri KM 2.2, Mekarwangi, Pagerwangi, Bandung','-',20000,20000,'Area Dago Dream Park cukup luas, dengan kontur berbukit. Suasana alami di tempat ini terjaga sehingga terasa lebih fresh. Banyaknya pilihan wahana, spot berfoto, dan juga fasilitas yang ada tentunya bakal bisa memanjakan liburan anda sekeluarga','T'),
+(49,'3217','3217120','3217120003','Lereng Anteng','-6.842545','107.622623','Puncak Ciumbuleuit','085845470841',0,0,'Lereng Anteng Panoramic Coffe Place adalah sebuah tempat ngopi yang sangat asyik dan sangat begitu fenomenal saat ini di kota bandung, dan itu bisa dibuktikan dengan tidak pernah sepinya tempat ini dari pengunjung yang datang.','T'),
+(50,'3217','3217120','3217120003','Tafso Barn','-6.842075','107.622676','jalan Pagermaneuh No 1, Desa Pagerwangi, Kecamatan Lembang, Kabupaten Bandung Barat, Provinsi Jawa Barat.','-',0,0,'Tafso Barn hadir melengkapi sejumlah tempat wisata yang telah dulu hadir dan populer di kawasan Ciumbuleuit Bandung seperti Lereng Anteng Panoramic Coffee Place, Angkringan de BlankOn dll.','T'),
+(51,'3217','3217120','3217120005','Curug Omas','-6.834567','107.657242','Desa langensari Kecamatan Lembang ,Bandung Barat','-',0,0,'Curug Omas berada di dalam Taman Hutan Raya (Tahura) Ir. H. Juanda di lokasi wisata Maribaya.  Curug ini memiliki ketinggian terjunan air sekitar 30 meter dengan kedalaman 10 m yang berada di aliran sungai Cikawari.','T'),
+(52,'3217','3217120','3217120012','Orchid Forest','-6.779937','107.635029','Jalan Tangkuban Perahu Km. 8, Desa Cikole, Kecamatan Lembang, Kabupaten Bandung Barat, Jawa Barat','081220003438',30000,30000,'Orchid forest cikole merupakan wisata taman anggrek terbesar di indonesia loh guys yang mana luas taman ini mencapai 12 hektare keren kan, dan di sini juga di budidayakan lebih dari 157 jenis bunga anggrek yang bisa kamu temukan di seluruh dunia seperti Venezuela, Amerika Serikat, dan Peru.','T'),
+(53,'3217','3217120','3217120007','Kebun Bunga Begonia','-6.826059','107.638353','Jalan Maribaya No. 120 A, Lembang – Bandung, Jawa Barat','-',10000,10000,'Taman Begonia Glory di Lembang ini merupakan sebuah kawasan yang didirikan dengan salah satu tujuannya adalah memperkaya khasanah Florikultura Indonesia.','T'),
+(54,'3217','3217130','3217130003','Curug Panganten','-6.835047','107.567017','Jalan Raya Cihanjuang Km 5,6. Dan secara administratif berada di Desa Padaasih, Kecamatan Cisarua, Kabupaten Bandung Barat, Provinsi Jawa Barat.','-',5000,5000,'Curug Panganten adalah air terjun yang berada di barat Bandung. Air terjun ini berada pada ketinggian 1050 mdpl. Curug Panganten memiliki ketinggian ± 50 m. Curug Panganten ini memiliki keunikan yaitu pemandangan alamnya yang indah. ','T'),
+(55,'3217','3217110','3217110005','Katumiri','-6.840466','107.573613','Jalan Raya Cihanjuang Parongpong, Bandung Barat','02220206515',5000,5000,'Tempat rekreasi Katumiri Bandung dirancang untuk dapat dinikmati tak hanya oleh anak-anak, melainkan juga orang dewasa. Anda bisa menjajal serunya ngebut dengan ATV Touring, atau memacu adrenalin memanjat tebing, atau meluncur seru dengan flying fox','T'),
+(56,'3217','3217120','3217120011','Taman Lembah Dewata','-6.811424','107.642555','Jalan Raya Gunung Tangkuban Perahu KM 3.7, Cibogo, Lembang Kabupaten Bandung Barat.','081222108181',10000,10000,'-','T'),
+(57,'3217','3217120','3217120010','Wanawisata Pasir Ipis','-6.789023','107.617055','Desa Jayagiri, Lembang','-',7500,7500,'Wana Wisata Pasir Ipis ini pada mulanya terbentuk dari Karang Taruna serta Salah Satu organisasi Perhimpunan Pemuda Lembang, memotivasi remaja karangtaruna agar mengadakan kegiatan.','T'),
+(58,'3217','3217110','3217110002','Jendela Alam','-6.819384','107.596401','Komplek Graha Puspa Lembang. ','0222788482',10000,10000,'Tempat wisata anak yang sangat cocok dan pas sebagai sarana belajar anak anda sekaligus tempat rekreasi untuk anak-anak anda di Bandung Barat dengan sentuhan alam daerah Lembang yang terkenal sangat indah dengan udara yang sejuk pula, serta sangat ideal sebagai tempat liburan keluarga di bandung untuk lebih mengenalkan anak anda akan perlunya pelestarian alam dan isinya.','T'),
+(59,'3217','3217080','3217080005','Stone Garden','-6.825627','107.437059','di puncak gunung Pawon, Kampung Girimulya, desa gunung masigit, kecamatan Cipatat kabupaten Bandung Barat, jawa barat indonesia.','-',3000,3000,'Stone Garden adalah sebuah kawasan gunung batu kapur yang lokasinya terletak di puncak gunung Pawon, Kampung Girimulya, desa gunung masigit, kecamatan Cipatat kabupaten Bandung Barat, jawa barat indonesia.','T'),
+(60,'3217','3217080','3217080005','Gua Pawon','-6.823264','107.436705','Cipatat, Padalarang, Gunungmasigit, Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554','-',3000,3000,'Gua Pawon merupakan sebuah situs purbakala karena ditemukannya kerangka manusia. Sedangkan Stone Garden berisi banyak batu-batu dan di antaranya seperti batu yang terstruktur.','T'),
+(61,'3217','3217120','3217120009','Pemandian Air Panas Nagrak','-6.802594','107.591285','Desa Sukajaya, Kecamatan Lembang, Kabupaten Bandung Barat, Propinsi Jawa Barat','-',5000,5000,'Pemandian Air Panas Nagrak adalah pemandian umum alami yang berbentuk sebuah kolam rendam dengan ukuran yang tak terlalu besar. Berbeda dengan saudaranya Pemandian Air Panas Ciater atau Sari Ater yang berada di Subang, Pemandian Air Panas Nagrak ini masih terasa sangat alami dan sangat sederhana. Berada di sebuah perkebunan milik warga menjadikan tempat ini sangat tersembunyi dan privat bagi kamu yang ingin merasakan sensasi berendam air panas dengan suasana yang sejuk dan sunyi.','T'),
+(62,'3204','3204010','3204010001','coba','1','1','coba','1',1,1,'coba','T');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

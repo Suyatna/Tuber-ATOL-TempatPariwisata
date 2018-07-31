@@ -8,10 +8,36 @@
     <!-- CSS--> 
     <link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo base_url(); ?>assets/js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen, projection">    
     
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <h4>Peringatan!</h4>
+        <p>Apakah anda ingin menghapus data ini?</p>
+    </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" id="alert_close" aria-hidden="true"> Tidak</a>
+
+            <a href="#!" onclick = "ConfirmDelete()" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal2" class="modal">
+    <div class="modal-content">
+        <h4>Peringatan!</h4>
+        <p>Apakah anda ingin mengedit data ini?</p>
+    </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" id="alert_close" aria-hidden="true"> Tidak</a>
+
+            <a href="#!" onclick = "ConfirmEdit()" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
+        </div>
+    </div>
+
 </head>
-<body>
+<body>    
     <div id="main">
         <div class="wrapper">
             <section id="content">
@@ -19,7 +45,7 @@
                     <div class="section">
                         <div class="divider"></div>            
                             <div id="table-datatables">
-                                <h4 class="header">Data Kecamatan</h4>
+                                <h4 class="header">Data Kecamatan</h4>                                
                                 <hr>
                                 <div class="row">            
                                     <div class="col s12 m8 19">
@@ -38,34 +64,21 @@
                                             </thead>
                                             
                                             <tbody>
-                                                <?php 
+                                                <?php      
                                                     foreach ($hasil->result_array() as $value) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $value['id_kecamatan']; $_SESSION['id_kecamatan'] =  $value['id_kecamatan'];?></td>
+                                                        <td><?php echo $value['id_kecamatan']; ?></td>
                                                         <td><?php echo $value['id_kabupaten']; ?></td>
                                                         <td><?php echo $value['nama_kecamatan']; ?></td>
                                                         <td>
-                                                            <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
+                                                            <a href="#modal1" data-toggle="modal" data-target="#myModal" class="modal-trigger" style="color:red" rel="tooltip" title="Hapus"><i class="mdi-action-delete"></i>Hapus</a> &nbsp;
                                                         </td>
                                                         <td>
-                                                            <a href="#modal1" data-target="modal1" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
+                                                            <a href="#modal1" data-toggle="modal" data-target="#myModal2" class="modal-trigger" style="color:blue" rel="tooltip" title="Edit"><i class="mdi-editor-mode-edit"></i>Edit</a> &nbsp;
                                                         </td>
                                                     </tr>                                                                                             
-                                                <?php } ?>
-
-                                                <!-- Modal Structure -->
-                                                <div id="modal1" class="modal">
-                                                    <div class="modal-content">
-                                                        <h4>Peringatan!</h4>
-                                                        <p>Apakah anda ingin menghapus data ini?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                    <a class="modal-action modal-close waves-effect waves-green btn-flat" id="alert_close" aria-hidden="true"> Tidak</a>
-
-                                                    <a href="#!" class="modal-action waves-effect waves-blue btn-flat">Ya</a>
-                                                    </div>
-                                                </div>
+                                                <?php } ?>                                                
                                             </tbody>
 
                                         </table>                            
@@ -79,18 +92,41 @@
             </section>
         </div>
     </div>
-
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems, options);
+        var tempValueId = "";
+
+        $(document).on('hidden.bs.modal', function (e) {
+            var target = $(e.target);
+            target.removeData('bs.modal')
+            .find(".clearable-content").html('');
         });
 
-        // Or with jQuery
-
-        $(document).ready(function(){
-            $('.modal').modal();
+        $("#data-table-simple tr").click(function() {
+            $(this).addClass('selected').siblings().removeClass('selected');    
+            var value = $(this).find('td:first').html();
+            // alert(value);            
+            // console.log(value);
+            tempValueId = value;                  
         });
+
+        $('.ok').on('click', function(e){
+            // alert($("#data-table-simple tr.selected td:first").html());            
+        });
+
+        function ConfirmDelete()
+        {
+            console.log(tempValueId);            
+            location.replace("<?php echo base_url() . 'hapus_kecamatan_admin/'?>" +tempValueId +"<?php ; ?>");
+        }
+
+        function ConfirmEdit()
+        {
+            console.log(tempValueId);            
+            location.replace("<?php echo base_url() . 'edit_kecamatan_admin/'?>" +tempValueId +"<?php ; ?>");
+        }
     </script>
 </body>
 </html>

@@ -30,7 +30,8 @@
 
             $data = array (                
                 'id_kabupaten' => $id_kabupaten,
-                'nama_kabupaten' => $nama_kabupaten
+                'nama_kabupaten' => $nama_kabupaten,
+                'status' => 'tidak'
             );
             // echo json_encode($data);
             $this->admin_model->insertDataKabupaten($data, 'tb_kabupaten');

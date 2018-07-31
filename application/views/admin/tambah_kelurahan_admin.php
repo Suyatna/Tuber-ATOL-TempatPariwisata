@@ -22,7 +22,7 @@
                         <!--Basic Form-->
                         <div id="basic-form" class="section">
                             <div id="table-datatables">
-                                <h4 class="header">Tambah Tempat Wisata</h4>
+                                <h4 class="header">Tambah Kelurahan</h4>
                                 <hr>
                                 <div class="row">
                                     <div class="col s12 m12 l12">

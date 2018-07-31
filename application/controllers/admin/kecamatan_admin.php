@@ -21,5 +21,16 @@
             $this->load->view('admin/kecamatan_admin', $query);
             $this->load->view('admin/footer');
         }
+
+        public function hapusKecamatanAdmin($idKecamatan)
+        {         
+            $id = $idKecamatan;   
+            $data = array (
+                'status' => 'hapus'
+            );
+
+            $this->admin_model->deleteDataKecamatan($id, $data);
+            redirect('admin/kecamatan_admin');
+        }
     }
 ?>

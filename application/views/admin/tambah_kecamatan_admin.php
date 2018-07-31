@@ -22,14 +22,14 @@
                         <!--Basic Form-->
                         <div id="basic-form" class="section">
                             <div id="table-datatables">
-                                <h4 class="header">Tambah Tempat Wisata</h4>
+                                <h4 class="header">Tambah Kecamatan</h4>
                                 <hr>
                                 <div class="row">
                                     <div class="col s12 m12 l12">
                                         <div class="card-panel">
                                             <div class="row">
 
-                                                <form class="col s12" action="<?php echo base_url() .'post_wisata_admin'; ?>" method="POST">
+                                                <form class="col s12" action="<?php echo base_url() .'post_kecamatan_admin'; ?>" method="POST">
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
@@ -70,7 +70,7 @@
                                                             <button class="btn cyan waves-effect waves-light" type="submit" name="action">Tambah
                                                                 <i class="mdi-content-send right"></i>
                                                             </button>
-                                                            <a href="<?php echo base_url() .'post_kecamatan_admin'; ?>" class="btn red waves-effect waves-light right">Batal
+                                                            <a href="<?php echo base_url() .'kecamatan_admin'; ?>" class="btn red waves-effect waves-light right">Batal
                                                                 <i class="mdi-content-undo right"></i>
                                                             </a>
                                                         </div>
